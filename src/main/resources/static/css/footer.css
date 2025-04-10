@@ -1,0 +1,12 @@
+/* footer.css */
+footer {
+    background-color: #f8f8f8;
+    border-top: 1px solid #ddd;
+    padding: 1rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+footer small {
+    color: #777;
+}

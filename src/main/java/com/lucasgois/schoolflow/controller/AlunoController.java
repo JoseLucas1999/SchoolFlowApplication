@@ -11,6 +11,8 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/alunos")
 public class AlunoController {
+	
+	//(API REST) lida com requisições JSON 
 
     @Autowired
     private AlunoRepository alunoRepository;

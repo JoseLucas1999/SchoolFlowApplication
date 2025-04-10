@@ -20,7 +20,7 @@ public class SecurityConfig {
 	            .anyRequest().authenticated() // tudo mais exige login
 	        )
 	        .formLogin(form -> form
-	            .defaultSuccessUrl("/dashboard", true) // ✅ redireciona corretamente após login
+	            .defaultSuccessUrl("/index", true) // ✅ redireciona corretamente após login
 	            .permitAll()
 	        )
 	        .logout(logout -> logout

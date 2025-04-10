@@ -1,0 +1,11 @@
+/* header.css */
+header {
+    background-color: #f0f0f0;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    color: #333;
+}

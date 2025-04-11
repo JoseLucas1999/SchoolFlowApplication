@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-<head th:replace="fragments/header :: header('SchoolFlow - Início')">
-	<link rel="stylesheet" th:href="@{/css/index.css}" />
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title th:text="${title}">SchoolFlow</title>
+<link rel="stylesheet" th:href="@{/css/index.css}" />
+<link rel="stylesheet" th:href="@{/css/navbar.css}" />
+<link rel="stylesheet" th:href="@{/css/footer.css}" />
 </head>
+
 <body>
 
-<div>
-    <div th:replace="fragments/navbar :: navbar"></div>
+	<div class="index-container">
+		<div th:replace="fragments/navbar :: navbar"></div>
 
-    <h2>Bem-vindo ao <strong>SchoolFlow</strong> 🎓</h2>
+		<h2>
+			Bem-vindo ao <strong>SchoolFlow</strong> 🎓
+		</h2>
 
-    <div>
-        <div>
-            <div>
-                <div>
-                    <h5>📊 Dashboard</h5>
-                    <p>Acesse a visão geral com gráficos e dados das entidades.</p>
-                    <a th:href="@{/dashboard/dashboard}">Ver Dashboard</a>
-                </div>
-            </div>
-        </div>
-        
-        <div>
-            <div>
-                <div>
-                    <h5>👨‍🎓 Alunos</h5>
-                    <p>Gerencie os alunos cadastrados, edite ou adicione novos.</p>
-                    <a th:href="@{/aluno/listar}">Ver Alunos</a>
-                </div>
-            </div>
-        </div>
-        
-        <div>
-            <div>
-                <div>
-                    <h5>👨‍🏫 Professores</h5>
-                    <p>Visualize, edite e cadastre professores da escola.</p>
-                    <a th:href="@{/professore/listar}">Ver Professores</a>
-                </div>
-            </div>
-        </div>
-    </div>
+		<div>
+			<!-- Dashboard Card -->
+			<div class="index-card">
+				<h5>📊 Dashboard</h5>
+				<p>Acesse a visão geral com gráficos e dados das entidades.</p>
+				<a th:href="@{/dashboard/dashboard}" class="index-button">Ver Dashboard</a>
+			</div>
+			
+			<!-- Alunos Card -->
+			<div class="index-card">
+				<h5>👨‍🎓 Alunos</h5>
+				<p>Gerencie os alunos cadastrados, edite ou adicione novos.</p>
+				<a th:href="@{/aluno/listar}" class="index-button">Ver Alunos</a>
+			</div>
+			
+			 <!-- Professores Card -->
+			<div class="index-card">
+				<div>
+					<div>
+						<h5>👨‍🏫 Professores</h5>
+						<p>Visualize, edite e cadastre professores da escola.</p>
+						<a th:href="@{/professor/listar}" class="index-button">Ver Professores</a>
+					</div>
+				</div>
 
-    <div>
-        <a th:href="@{/logout}">🚪 Sair</a>
-    </div>
+		<div style="margin-top: 2rem;">
+			<a th:href="@{/logout}" class="index-button">>🚪 Sair</a>
+		</div>
 
-    <div th:replace="fragments/footer :: footer"></div>
-</div>
+		<div th:replace="fragments/footer :: footer"></div>
+	</div>
 
 </body>
 </html>

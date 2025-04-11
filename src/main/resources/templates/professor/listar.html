@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Professores</title>
-    <meta charset="UTF-8">
+<html xmlns:th="http://www.thymeleaf.org"><meta charset="UTF-8">
+</head>
+<head th:replace="fragments/header :: header('Lista de Professores')">
+	<link rel="stylesheet" th:href="@{/css/index.css}" />
 </head>
 <body>
-
+<div th:replace="fragments/navbar :: navbar"></div>
 <h1>Lista de Professores</h1>
 
-<a th:href="@{/professores/novo}">Cadastrar novo professor</a>
+<a th:href="@{/professor/novo}">Cadastrar novo professor</a>
 
 <table border="1">
     <thead>
@@ -25,8 +25,8 @@
             <td th:text="${professor.email}">Email</td>
             <td th:text="${professor.especializacao}">Especialização</td>
             <td>
-                <a th:href="@{'/professores/editar/' + ${professor.id}}">Editar</a> |
-                <a th:href="@{'/professores/excluir/' + ${professor.id}}"
+                <a th:href="@{'/professor/editar/' + ${professor.id}}">Editar</a> |
+                <a th:href="@{'/professor/excluir/' + ${professor.id}}"
                    onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
             </td>
         </tr>

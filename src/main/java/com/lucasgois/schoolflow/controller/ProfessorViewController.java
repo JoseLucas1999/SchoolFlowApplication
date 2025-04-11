@@ -8,14 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/professores")
+@RequestMapping("/professor")
 public class ProfessorViewController {
 
     @Autowired
     private ProfessorRepository professorRepository;
 
     // Lista todos os professores
-    @GetMapping
+    @GetMapping("/listar")
     public String listarProfessores(Model model) {
         model.addAttribute("professores", professorRepository.findAll());
         return "professor/listar";

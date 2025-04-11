@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Lista de Alunos</title>
-    <meta charset="UTF-8">
+<head th:replace="fragments/header :: header('Lista de Alunos')">
+	<link rel="stylesheet" th:href="@{/css/index.css}" />
 </head>
 <body>
+<div th:replace="fragments/navbar :: navbar"></div>
 <h1>Alunos</h1>
-<a th:href="@{/alunos/novo}">Novo Aluno</a>
+<a th:href="@{/aluno/novo}">Novo Aluno</a>
 <table>
     <thead>
         <tr>
@@ -20,12 +20,12 @@
     <tbody>
         <tr th:each="aluno : ${alunos}">
             <td th:text="${aluno.nome}"></td>
+            <td th:text="${aluno.cpf}"></td>
             <td th:text="${aluno.email}"></td>
             <td th:text="${aluno.telefone}"></td>
-            <td th:text="${aluno.turma.nome}"></td>
             <td>
-                <a th:href="@{'/alunos/editar/' + ${aluno.id}}">Editar</a> |
-                <a th:href="@{'/alunos/excluir/' + ${aluno.id}}" onclick="return confirm('Deseja excluir?')">Excluir</a>
+                <a th:href="@{'/aluno/editar/' + ${aluno.id}}">Editar</a> |
+                <a th:href="@{'/aluno/excluir/' + ${aluno.id}}" onclick="return confirm('Deseja excluir?')">Excluir</a>
             </td>
         </tr>
     </tbody>

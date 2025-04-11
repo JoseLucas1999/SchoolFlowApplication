@@ -18,8 +18,8 @@ public class Aluno {
 
     private String telefone;
     
-    
     @ManyToOne(optional = false)
+    @JoinColumn(name = "turma_id")
     private Turma turma;
 
 

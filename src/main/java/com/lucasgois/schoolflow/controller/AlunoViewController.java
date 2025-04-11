@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/alunos")
+@RequestMapping("/aluno")
 public class AlunoViewController {
 	
 	//páginas HTML com Thymeleaf.
@@ -16,7 +16,7 @@ public class AlunoViewController {
     @Autowired
     private AlunoRepository alunoRepository;
 
-    @GetMapping
+    @GetMapping("/listar")
     public String listar(Model model) {
         model.addAttribute("alunos", alunoRepository.findAll());
         return "aluno/listar"; // Vai renderizar templates/aluno/listar.html

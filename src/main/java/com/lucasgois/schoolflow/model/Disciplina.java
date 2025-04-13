@@ -1,14 +1,11 @@
 package com.lucasgois.schoolflow.model;
 
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 
 @Entity
 public class Disciplina {
@@ -17,27 +14,22 @@ public class Disciplina {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true, nullable = false)
     private String nome;
 
     private Integer cargaHoraria;
 
     @Column(length = 500)
     private String descricao;
-    
-    @ManyToOne(optional = false)
-    private Professor professor;
-    
-    @OneToMany(mappedBy = "disciplina")
-    private List<TurmaDisciplina> turmas;
+   
 
     // Construtores
     public Disciplina() {}
 
-    public Disciplina(String nome, Integer cargaHoraria, String descricao, Professor professor) {
+    public Disciplina(String nome, Integer cargaHoraria, String descricao) {
         this.nome = nome;
         this.cargaHoraria = cargaHoraria;
         this.descricao = descricao;
-        this.professor = professor;
     }
 
     // Getters e Setters

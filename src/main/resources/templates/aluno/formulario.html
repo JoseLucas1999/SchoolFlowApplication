@@ -7,21 +7,29 @@
 <body>
 <h1 th:text="${aluno.id != null} ? 'Editar Aluno' : 'Novo Aluno'"></h1>
 
-<form th:action="@{/alunos/salvar}" th:object="${aluno}" method="post">
+<form th:action="@{/aluno}" th:object="${aluno}" method="post">
     <input type="hidden" th:field="*{id}" />
+    
     <label>Nome:</label>
     <input type="text" th:field="*{nome}" /><br>
+    
+    <label>CPF:</label>
+    <input type="text" th:field="*{cpf}" /><br>
+    
     <label>Email:</label>
     <input type="email" th:field="*{email}" /><br>
+    
     <label>Telefone:</label>
     <input type="text" th:field="*{telefone}" /><br>
+    
     <label>Turma:</label>
-    <select th:field="*{turma}">
-        <option th:each="turma : ${turmas}" th:value="${turma}" th:text="${turma.nome}"></option>
+    <select th:field="*{turma.id}">
+    	<option th:each="turma : ${turmas}" th:value="${turma.id}" th:text="${turma.nome}"></option>
     </select><br>
-    <button type="submit">Salvar</button>
+    
+    <button type="submit"> Salvar </button>
+    <a th:href="@{/aluno/listar}">Cancelar</a>
 </form>
 
-<a th:href="@{/alunos}">Voltar</a>
 </body>
 </html>

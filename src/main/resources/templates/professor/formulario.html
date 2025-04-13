@@ -8,20 +8,28 @@
 
 <h1 th:text="${professor.id == null} ? 'Cadastrar Professor' : 'Editar Professor'">Formulário de Professor</h1>
 
-<form th:action="@{/professores}" th:object="${professor}" method="post">
+<form th:action="@{/professor}" th:object="${professor}" method="post">
     <input type="hidden" th:field="*{id}"/>
 
     <label for="nome">Nome:</label>
     <input type="text" th:field="*{nome}" required/><br/>
+    
+    <label>CPF:</label>
+    <input type="text" th:field="*{cpf}" /><br>
 
     <label for="email">Email:</label>
     <input type="email" th:field="*{email}" required/><br/>
 
-    <label for="especializacao">Especialização:</label>
-    <input type="text" th:field="*{especializacao}" required/><br/>
+    <label>Telefone:</label>
+    <input type="text" th:field="*{telefone}" /><br>
+    
+        <label>Disciplina:</label>
+    <select th:field="*{disciplina.id}">
+    	<option th:each="disciplina : ${discip}" th:value="${disciplina.id}" th:text="${disciplina.nome}"></option>
+    </select><br>
 
     <button type="submit">Salvar</button>
-    <a th:href="@{/professores}">Cancelar</a>
+    <a th:href="@{/professor}">Cancelar</a>
 </form>
 
 </body>

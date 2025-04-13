@@ -11,9 +11,10 @@
     <thead>
         <tr>
             <th>Nome</th>
+            <th>CPF</th>
             <th>Email</th>
             <th>Telefone</th>
-            <th>Turma</th>
+             <th>Turma</th>
             <th>Ações</th>
         </tr>
     </thead>
@@ -23,6 +24,7 @@
             <td th:text="${aluno.cpf}"></td>
             <td th:text="${aluno.email}"></td>
             <td th:text="${aluno.telefone}"></td>
+            <td th:text="${aluno.turma.nome}"></td>
             <td>
                 <a th:href="@{'/aluno/editar/' + ${aluno.id}}">Editar</a> |
                 <a th:href="@{'/aluno/excluir/' + ${aluno.id}}" onclick="return confirm('Deseja excluir?')">Excluir</a>

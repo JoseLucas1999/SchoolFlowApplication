@@ -35,7 +35,6 @@ public class TurmaController {
         return turmaRepository.findById(id).map(t -> {
             t.setNome(atualizada.getNome());
             t.setAnoLetivo(atualizada.getAnoLetivo());
-            t.setDisciplinas(atualizada.getDisciplinas());
             return turmaRepository.save(t);
         }).orElseGet(() -> {
             atualizada.setId(id);

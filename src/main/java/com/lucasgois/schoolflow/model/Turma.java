@@ -1,16 +1,10 @@
 package com.lucasgois.schoolflow.model;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 
 @Entity
@@ -26,18 +20,6 @@ public class Turma {
     
     @OneToMany(mappedBy = "turma")
     private List<Aluno> alunos;
-    
-    @OneToMany(mappedBy = "turma")
-    private List<TurmaDisciplina> disciplinas;
-
-
-    @ManyToMany
-    @JoinTable(
-        name = "turma_disciplinas",
-        joinColumns = @JoinColumn(name = "turma_id"),
-        inverseJoinColumns = @JoinColumn(name = "disciplina_id")
-    )
-    private Set<Disciplina> disciplina = new HashSet<>();
 
     // Construtores
     public Turma() {}
@@ -47,6 +29,20 @@ public class Turma {
         this.nome = nome;
         this.anoLetivo = anoLetivo;
     }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Turma)) return false;
+        Turma turma = (Turma) o;
+        return id != null && id.equals(turma.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
+    
 
     // Getters e Setters
     public Long getId() { return id; }
@@ -58,6 +54,4 @@ public class Turma {
     public String getAnoLetivo() { return anoLetivo; }
     public void setAnoLetivo(String anoLetivo) { this.anoLetivo = anoLetivo; }
 
-    public Set<Disciplina> getDisciplinas() { return disciplina; }
-    public void setDisciplinas(Set<Disciplina> disciplina) { this.disciplina = disciplina; }
 }

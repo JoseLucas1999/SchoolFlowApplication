@@ -44,7 +44,6 @@ public class ProfessorController {
         return professorRepository.findById(id).map(prof -> {
             prof.setNome(atualizado.getNome());
             prof.setEmail(atualizado.getEmail());
-            prof.setEspecializacao(atualizado.getEspecializacao());
             return professorRepository.save(prof);
         }).orElseGet(() -> {
             atualizado.setId(id);

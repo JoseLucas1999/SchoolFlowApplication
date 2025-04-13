@@ -47,10 +47,4 @@ public class DisciplinaController {
     public void deletar(@PathVariable Long id) {
         disciplinaRepository.deleteById(id);
     }
-    
-    @GetMapping("/professor/{professorId}")
-    public List<Disciplina> listarPorProfessor(@PathVariable Long professorId) {
-        return disciplinaRepository.findByProfessorId(professorId);
-    }
-
 }

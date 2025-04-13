@@ -11,11 +11,13 @@ public class Aluno {
 
     private String nome;
     
+    @Column(unique = true, nullable = false)
     private String cpf;
 
     @Column(unique = true, nullable = false)
     private String email;
 
+    @Column(unique = true, nullable = false)
     private String telefone;
     
     @ManyToOne(optional = false)
@@ -26,12 +28,13 @@ public class Aluno {
     // Construtores
     public Aluno() {}
 
-    public Aluno(Long id, String nome, String cpf, String email, String telefone) {
+    public Aluno(Long id, String nome, String cpf, String email, String telefone, Turma turma) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
         this.telefone = telefone;
+        this.turma = turma;
     }
 
     // Getters e Setters
@@ -49,4 +52,9 @@ public class Aluno {
 
     public String getTelefone() { return telefone; }
     public void setTelefone(String telefone) { this.telefone = telefone; }
+
+	public Turma getTurma() {return turma;}
+	public void setTurma(Turma turma) {this.turma = turma;}
+    
+    
 }

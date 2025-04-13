@@ -14,16 +14,20 @@
     <thead>
         <tr>
             <th>Nome</th>
+            <th>CPF</th>
             <th>Email</th>
-            <th>Especialização</th>
+            <th>Telefone</th>
+            <th>Disciplina</th>
             <th>Ações</th>
         </tr>
     </thead>
     <tbody>
         <tr th:each="professor : ${professores}">
             <td th:text="${professor.nome}">Nome</td>
+            <td th:text="${professor.cpf}">CPF</td>
             <td th:text="${professor.email}">Email</td>
-            <td th:text="${professor.especializacao}">Especialização</td>
+            <td th:text="${professor.telefone}">Telefone</td>
+            <td th:text="${professor.disciplina.nome}">Disciplina</td>
             <td>
                 <a th:href="@{'/professor/editar/' + ${professor.id}}">Editar</a> |
                 <a th:href="@{'/professor/excluir/' + ${professor.id}}"
